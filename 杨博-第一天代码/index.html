@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			
+		</style>
+		<link rel="stylesheet" type="text/css" href="css/hotgoods.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="css/login.css" />
+	</head>
+
+	<body>
+		<div class="header1">
+			<div class="header-con">欢迎来到粮仓</div>
+			<div class="header-son">
+				<ul>
+					<li><button class="register" id="register">注册</button></li>
+					<li><button class="login" id="login">登录</button></li>
+					<li>
+						<a href="order.html">我的订单</a>
+					</li>
+					<li>
+						<a href="collection.html">收藏夹</a>
+					</li>
+					<li>
+						<a href="index.html">首页</a>
+					</li>
+					<li>
+						<a href="cart.html">购物车</a>
+					</li>
+					<li>
+						<a href="cart.html">会员俱乐部</a>
+					</li>
+					<li>
+						<a href="cart.html">客户服务</a>
+					</li>
+					<li>
+						<a href="cart.html">手机版</a>
+					</li>
+					<li>
+						<a href="cart.html">更多</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		</div>
+		<div class="header2">
+			<div class="logo1">
+				<a href="dop">
+					<img src="img/a.gif"/>
+				</a>
+			</div>
+			<div class="logo2">
+				<ul>
+					<li>
+						<a href=""><img src="" alt=""></a>
+					</li>
+					<li>
+						<a href=""><img src="" alt=""></a>
+					</li>
+					<li>
+						<a href=""><img src="" alt=""></a>
+					</li>
+					
+				</ul>
+			</div>
+			<div class="logo3">
+				<div class="a"></div>
+				<div class="b">购物袋</div>
+				<div class="c">
+					<span class="a1">
+						0
+					</span>
+				</div>
+					
+				
+			</div>
+			
+		</div>
+		<div class="header3">
+			<ul id="cat" class="cat">
+				
+			</ul>
+			<script src="js/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+			<script type="text/javascript">
+				$.get("http://h6.duchengjiu.top/shop/api_cat.php",{},  function(json){
+			      console.log(json);
+			      console.log(typeof json);
+						var data = json.data;
+						
+						for (var i = 0; i < data.length; i++) {
+							var obj = data[i];
+							$('#cat')[0].innerHTML += `<li><a href="商品列表.html?cat_id=${obj.cat_id}">${obj.cat_name}</a></li>`
+						}
+					
+					}
+
+				);
+			</script>
+		</div>
+		
+		<div class="header4">
+			<div class="box">
+				<div class="focus">
+					<ul class="fbc">
+						<li class="">
+							<img src="img/1.jpg"/>
+						</li>
+						<li class="">
+							<img src="img/2.jpg"/>
+						</li>
+						<li class="">
+							<img src="img/3.jpg"/>
+						</li>
+						<li class="">
+							<img src="img/4.jpg"/>
+						</li>
+						<li class="">
+							<img src="img/5.jpg"/>
+						</li>
+						<li class="">
+							<img src="img/6.jpg"/>
+						</li>
+					</ul>
+					
+						
+					
+				</div>
+			</div>
+		</div>
+		
+		<div class="header5">
+			<script src="js/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+			<main>
+				<ul id="hot-goods"></ul>
+			</main>
+			<script>
+				var oGoods = document.querySelector('#hot-goods');
+
+
+               $.get("http://h6.duchengjiu.top/shop/api_goods.php",
+	               {}, 
+	               function(data){
+				      console.log(data);
+				      var data = data.data;
+						
+						for (var i = 0; i < data.length; i++) {
+							var obj = data[i];
+							$('#hot-goods')[0].innerHTML += `<li class="goods"><a href="goods.html?goods_id=${obj.goods_id}">
+                    <div><img src="${obj.goods_thumb}" /></div>
+                    <div>${obj.goods_name}</div>
+                    <div>${obj.price}</div></a>
+                </li>`
+						}
+						
+					}
+	            );
+			</script>
+		</div>
+		
+		
+		
+		<div class="box">
+			<div class="fox1">
+				<div class="aex">
+					我的足迹
+				</div>
+			</div>
+			<div class="fox2">
+				<div class="bex">
+					电子劵
+				</div>
+			</div>
+			<div class="fox3">
+				<a href="商品列表.html">
+					<div class="cex">
+						商品列表
+					</div>
+				</a>
+			</div>
+			<div class="fox4">
+				<a href="商品列表.html">
+					<div class="dex">
+						热门品牌
+					</div>
+				</a>
+			</div>
+			<div class="fox5">
+				<div class="Eex">
+					会员反馈
+				</div>
+			</div>
+			<div class="fox6">
+
+			</div>
+			<div class="fox7">
+				<div class="fex">
+					返回顶部
+				</div>
+			</div>
+		</div>
+			<script type="text/javascript">
+				var oBack = document.querySelector('.fox7');
+				window.onscroll = function() {}
+
+				oBack.onclick = function() {
+					scrollAnimate(0, 500);
+				}
+
+				function scrollAnimate(target, timer) {
+					var interval = 20;
+					var frame = 0;
+					var frames = timer / interval;
+					var start = document.body.scrollTop || document.documentElement.scrollTop;
+					var distance = target - start;
+					var timer;
+					clearInterval(timer);
+					timer = setInterval(function() {
+						frame++;
+						if (frame >= frames) {
+							clearInterval(timer);
+						}
+						document.body.scrollTop = document.documentElement.scrollTop = CubicEaseInOut(frame, start, distance, frames);
+					}, interval);
+
+					function CubicEaseInOut(t, b, c, d) {
+						if ((t /= d / 2) < 1) return c / 2 * t * t * t + b;
+						return c / 2 * ((t -= 2) * t * t + 2) + b;
+					}
+				}
+			</script>
+
+	</body>
+
+				
+</html>

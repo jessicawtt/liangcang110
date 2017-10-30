@@ -1,0 +1,359 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.header1 {
+	width: 100%;
+	height: 40px;
+	position: relative;
+	background: #f8f8f8;
+}
+
+.header1 .header-con {
+	position: absolute;
+	color: black;
+	text-align: center;
+	left: 200px;
+	margin-top: 6px;
+	font-size: 20px;
+}
+
+.header1 .header-son {
+	position: absolute;
+	left: 140px;
+	margin-top: 6px;
+}
+
+.header1 .header-son ul {
+	list-style: none;
+	margin-left: 300px;
+}
+
+.header1 .header-son ul li {
+	width: 70px;
+	height: 25px;
+	float: left;
+	margin-left: 15px;
+	cursor: pointer;
+	font-size: 13px;
+	text-align: center;
+	line-height: 25px;
+}
+
+.header1 .header-son ul li a {
+	color: black;
+	text-decoration: none;
+}
+
+.header1 .header-son ul li button {
+	color: black;
+	width: 70px;
+	height: 25px;
+	border: none;
+	background: #f8f8f8;
+}
+
+.header1 .header-son ul li a:hover {
+	color: red;
+	border: 1px solid black;
+	display: block;
+	background-color: #DDDDDD;
+}
+
+.header1 .header-son ul li button:hover {
+	color: red;
+	border: 1px solid black;
+	background-color: #DDDDDD;
+}
+
+.header2 {
+	width: 100%;
+	height: 100px;
+	/*background: gainsboro;*/
+}
+
+.header2 .logo1 {
+	position: absolute;
+	width: 160px;
+	margin-left: 165px;
+}
+
+.header2 .logo2 {
+	position: absolute;
+	float: left;
+	width: 305px;
+	margin-left: 335px;
+	background: url(../img/b.png) no-repeat 0px -6px;
+}
+
+.header2 .logo2 ul {
+	list-style: none;
+	cursor: pointer;
+}
+
+.header2 .logo3 {
+	width: 110px;
+	height: 35px;
+	margin-top: 27px;
+	position: absolute;
+	left: 1090px;
+	background: gainsboro;
+	border-radius: 3px;
+}
+
+.header2 .logo3 .a {
+	width: 15px;
+	height: 30px;
+	background: url(../img/b.png) no-repeat -93px -200px;
+	margin-left: 15px;
+	cursor: pointer;
+}
+
+.header2 .logo3 .b {
+	width: 40px;
+	height: 30px;
+	line-height: 12px;
+	font-size: 12px;
+	position: absolute;
+	margin-left: 32px;
+	margin-top: -20px;
+}
+
+.header2 .logo3 .c {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	z-index: 1;
+	border-radius: 8px;
+	height: 16px;
+	width: 24px;
+	line-height: 16px;
+	color: #fff;
+	text-align: center;
+	background-color: #f00581;
+}
+
+.header2 .logo3 .c .a1 {
+	line-height: 16px;
+	color: #fff;
+	text-align: center;
+	cursor: pointer;
+}
+
+.header3 {
+	width: 100%;
+	height: 56px;
+	background-color: #f10180;
+}
+
+.header3 ul {
+	list-style: none;
+}
+
+.header3 ul li {
+	float: left;
+	margin-top: 10px;
+	margin-left: 85px;
+	cursor: pointer;
+}
+
+.header3 ul li a {
+	color: black;
+	font-size: 20px;
+	text-decoration: none;
+}
+
+.header3 ul li a:hover {
+	color: white;
+}
+
+.header4 {
+	height: 430px;
+	background: gainsboro;
+	background: url(../img/c.jpg);
+	margin: 0 auto;
+}
+.header5 {
+	width: 100%;
+	height: 1100px;
+	background: ghostwhite;
+}
+.box {
+	position: fixed;
+	right: 0px;
+	top: 50px;
+	z-index: 101;
+	width: 36px;
+	height: 600px;
+	background: grey;
+}
+
+.box .fox1 {
+	width: 100%;
+	height: 45px;
+	margin-top: 10px;
+	background-color: blueviolet;
+	background: url(../img/asd.png) no-repeat -160px 0px;
+}
+
+.box .fox1 .aex {
+	width: 115px;
+	height: 35px;
+	background: white;
+	position: absolute;
+	border: 1px solid gainsboro;
+	left: 36px;
+	top: 12px;
+	text-align: center;
+	line-height: 35px;
+	border-radius: 5px 0 0 5px;
+}
+
+.box .fox1:hover .aex {
+	left: -117px;
+	background-color: gainsboro;
+}
+
+.box .fox2 {
+	width: 100%;
+	height: 44px;
+	margin-top: 10px;
+	background-color: blueviolet;
+	background: url(../img/asd.png) no-repeat -160px -44px;
+}
+
+.box .fox2 .bex {
+	width: 115px;
+	height: 35px;
+	background: white;
+	position: absolute;
+	border: 1px solid gainsboro;
+	left: 36px;
+	top: 62px;
+	text-align: center;
+	line-height: 35px;
+	border-radius: 5px 0 0 5px;
+}
+
+.box .fox2:hover .bex {
+	left: -117px;
+	background-color: gainsboro;
+}
+
+.box .fox3 {
+	width: 100%;
+	height: 44px;
+	margin-top: 10px;
+	background-color: blueviolet;
+	background: url(../img/asd.png) no-repeat -120px 0px;
+}
+
+.box .fox3 .cex {
+	width: 115px;
+	height: 35px;
+	background: white;
+	position: absolute;
+	border: 1px solid gainsboro;
+	left: 36px;
+	color: black;
+	top: 122px;
+	text-align: center;
+	line-height: 35px;
+	border-radius: 5px 0 0 5px;
+}
+
+.box .fox3:hover .cex {
+	left: -117px;
+	background-color: gainsboro;
+}
+
+.box .fox4 {
+	width: 100%;
+	height: 44px;
+	margin-top: 10px;
+	background-color: blueviolet;
+	background: url(../img/asd.png) no-repeat -80px 0px;
+}
+
+.box .fox4 .dex {
+	width: 115px;
+	height: 35px;
+	background: white;
+	position: absolute;
+	border: 1px solid gainsboro;
+	color: black;
+	left: 36px;
+	top: 172px;
+	text-align: center;
+	line-height: 35px;
+	border-radius: 5px 0 0 5px;
+}
+
+.box .fox4:hover .dex {
+	left: -117px;
+	background-color: gainsboro;
+}
+
+.box .fox5 {
+	width: 100%;
+	height: 44px;
+	margin-top: 250px;
+	background-color: blueviolet;
+	background: url(../img/asd.png) no-repeat -160px -84px;
+}
+
+.box .fox5 .Eex {
+	width: 115px;
+	height: 35px;
+	background: white;
+	position: absolute;
+	border: 1px solid gainsboro;
+	left: 36px;
+	top: 471px;
+	text-align: center;
+	line-height: 35px;
+	border-radius: 5px 0 0 5px;
+}
+
+.box .fox5:hover .Eex {
+	left: -117px;
+	background-color: gainsboro;
+}
+
+.box .fox6 {
+	width: 100%;
+	height: 46px;
+	background-color: blueviolet;
+	background: url(../img/asd.png) no-repeat -80px -123px;
+}
+
+.box .fox7 {
+	width: 100%;
+	height: 44px;
+	background-color: blueviolet;
+	background: url(../img/asd.png) no-repeat -120px -125px;
+}
+
+.box .fox7 .fex {
+	width: 115px;
+	height: 35px;
+	background: white;
+	position: absolute;
+	border: 1px solid gainsboro;
+	left: 36px;
+	top: 561px;
+	text-align: center;
+	line-height: 35px;
+	border-radius: 5px 0 0 5px;
+}
+
+.box .fox7:hover .fex {
+	left: -117px;
+	background-color: gainsboro;
+}
+
+.box .fox7:hover .fex:hover {
+	cursor: pointer;
+}
+

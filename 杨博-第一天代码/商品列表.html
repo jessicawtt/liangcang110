@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="css/list.css"/>
+		<link rel="stylesheet" type="text/css" href="css/hotgoods.css"/>
+	</head>
+
+	<body>
+		<div class="header-container">
+			<a class="return" href="index.html">返回首页</a>
+			<a class="shop" href="cart.html">购物车</a>
+			<a class="order" href="#.html">我的订单</a>
+		</div>
+		<script src="js/mayajax.js" charset="utf-8"></script>
+		<!--<script src="js/smoke.js" type="text/javascript" charset="utf-8"></script>-->
+		<ul id="cat" class="cat"></ul>
+		<script>
+			var oCat = document.querySelector('#cat');
+			myajax.get('http://h6.duchengjiu.top/shop/api_cat.php', {}, function(error, responseText) {
+				var json = JSON.parse(responseText);
+				var data = json.data;
+				for(var i = 0; i < data.length; i++) {
+					var obj = data[i];
+					oCat.innerHTML += `<li><a href="商品列表.html?cat_id=${obj.cat_id}">${obj.cat_name}</a></li>`;
+				}
+			});
+		</script>
+		</header>
+
+		<main>
+			<ul id="hot-goods">
+			</ul>
+		</main>
+		<script>
+			var cat_id = getQueryString('cat_id');
+			var oGoods = document.querySelector('#hot-goods');
+			myajax.get('http://h6.duchengjiu.top/shop/api_goods.php', {
+					cat_id: cat_id
+				},
+				(err, responseText) => {
+					var json = JSON.parse(responseText);
+					console.log(json);
+					var data = json.data;
+					if(data.length === 0) {
+						oGoods.innerHTML = "<center>后端程序员跑路了</center>";
+						return;
+					}
+					for(var i = 0; i < data.length; i++) {
+						var obj = data[i];
+						oGoods.innerHTML += `<li class="goods"><a href="goods.html?goods_id=${obj.goods_id}">
+          <div><img src="${obj.goods_thumb}" /></div>
+          <div>${obj.goods_name}</div>
+          <div>${obj.price}</div></a>
+        </li>`;
+					}
+				});
+		</script>
+		<div class="box">
+			<div class="fox1">
+				<div class="aex">
+					我的足迹
+				</div>
+			</div>
+			<div class="fox2">
+				<div class="bex">
+					电子劵
+				</div>
+			</div>
+			<div class="fox3">
+				<a href="商品列表.html">
+					<div class="cex">
+						商品列表
+					</div>
+				</a>
+			</div>
+			<div class="fox4">
+				<a href="商品列表.html">
+					<div class="dex">
+						热门品牌
+					</div>
+				</a>
+			</div>
+			<div class="fox5">
+				<div class="Eex">
+					会员反馈
+				</div>
+			</div>
+			<div class="fox6"></div>
+			<div class="fox7">
+				<div class="fex">
+					返回顶部
+				</div>
+			</div>
+
+			<script type="text/javascript">
+				var oBack = document.querySelector('.fox7');
+				window.onscroll = function() {}
+
+				oBack.onclick = function() {
+					scrollAnimate(0, 500);
+				}
+
+				function scrollAnimate(target, timer) {
+					var interval = 20;
+					var frame = 0;
+					var frames = timer / interval;
+					var start = document.body.scrollTop || document.documentElement.scrollTop;
+					var distance = target - start;
+					var timer;
+					clearInterval(timer);
+					timer = setInterval(function() {
+						frame++;
+						if (frame >= frames) {
+							clearInterval(timer);
+						}
+						document.body.scrollTop = document.documentElement.scrollTop = CubicEaseInOut(frame, start, distance, frames);
+					}, interval);
+
+					function CubicEaseInOut(t, b, c, d) {
+						if ((t /= d / 2) < 1) return c / 2 * t * t * t + b;
+						return c / 2 * ((t -= 2) * t * t + 2) + b;
+					}
+				}
+			</script>
+	</body>
+
+</html>

@@ -1,0 +1,49 @@
+main{
+	width: 1100px;
+	margin: 0 auto;
+}
+#hot-goods {
+	list-style: none;
+}
+
+#hot-goods .goods {
+	float: left;
+	height: 330px;
+	width: 233px;
+	margin-top: 20px;
+	margin-left: 40px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	overflow: hidden;
+	position: relative;
+}
+
+#hot-goods .goods a {
+	text-decoration: none;
+	color: black;
+}
+
+#hot-goods .goods:hover {
+	box-shadow: 0 0 1px rgba(250, 0, 0, 1);
+}
+
+#hot-goods .goods div:nth-child(3){
+	color: red;
+	font-size: 25px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+#hot-goods .goods div:nth-child(1){
+	height: 233px;
+	overflow: hidden;
+}
+#hot-goods .goods div:nth-child(1) img{
+	width: 100%;
+}
+#hot-goods .goods div:nth-child(1) img:hover{
+	width: 110%;
+}
+#hot-goods .goods div:nth-child(2){
+	margin-left: 10px;
+}
