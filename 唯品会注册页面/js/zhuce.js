@@ -1,0 +1,12 @@
+	$(".ft4").blur(function(){
+				$(".yz4").css("visibility","visible")
+			})
+			$(".ft1").blur(function(){
+				$(".yz1").css("visibility","visible")
+			})
+			$(".ft2").blur(function(){
+				$(".yz2").css("visibility","visible")
+			})
+			$(".ft3").blur(function(){
+				$(".yz3").css("visibility","visible")
+			})
