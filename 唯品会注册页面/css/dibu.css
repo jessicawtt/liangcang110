@@ -1,0 +1,117 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	width: 100%;
+	height: 100%;
+	background-color: #FCFCFC;
+	border-top: 1px solid #EBEBEB;
+}
+.foot{
+	width: 960px;
+	height: 410px;
+	margin: 0 auto;
+}
+.tu{
+	width: 960px;
+	height: 105px;
+	background-image: url("../img/QQ1.png") ;
+}
+.tx{
+	width: 960px;
+	height: 146px;
+	margin-top: 35px;
+}
+.tx a{
+	text-decoration: none;
+}
+.L{
+	width: 145px;
+	height: 146px;
+	float: right;
+	list-style: none;
+}
+.L li{
+	font-size: 12PX;
+	text-align: center;
+}
+.L span{
+	margin-left: 22px;
+}
+.l{
+	width: 162px;
+	height: 146px;
+	float: left;
+	border-right: 1px solid #E0E0E0;
+	list-style: none;
+
+}
+
+.l ul{
+	margin-left: 35px;
+	margin-top: 5px;
+	
+}
+.l li{
+	font-size: 12px;
+	color: #808080;
+	margin-top: 4px;
+}
+.l li:hover{
+	margin-left: 3px;
+	color: #D7237E;
+	animation-delay: 1s;
+}
+
+.da{
+	list-style: none;
+	margin-left: -17px;
+	color: #4D4D4D;
+}
+.sp{
+	width: 960px;
+	height: 30px;
+	background-color:#D7237E ;
+	margin-top: 20px;
+	text-align: center;
+}
+.sp span{
+	font-size: 12px;
+	color: #FFFFFF;
+}
+.sp span:hover{
+	color: #9F8FB2;
+}
+.sp a{
+	text-decoration: none;
+}
+.shouquan{
+	width: 960px;
+	height: 57px;
+	font-size: 12px;
+	text-align: center;
+	margin-top: 15px;
+}
+.shouquan a{
+	text-decoration: none;
+}
+.shouquan a:hover{
+	color: #D7237E;
+}
+.shouquan img{
+	width: 12px;
+	height: 12px;
+}
+.footb{
+	width: 100%;
+	/*height: 100%;*/
+	margin: 0 auto;
+	background-color: #FFFFFF;
+}
+.footb1{
+	width: 960px;
+	height: 40px;
+	margin: 0 auto;
+	background-color: red;
+}
