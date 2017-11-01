@@ -1,0 +1,31 @@
+.bodys{
+    height:50px;
+    width:400px;
+}
+.bodys input{
+    height:30px;
+    line-height:30px;
+    width:260px;
+    padding:0 10px;
+    float:left;
+    outline: none
+}
+.bodys .three{
+    border:#F90 3px solid
+}
+.bodys .three3{
+    background-color:#F90;
+}
+.bodys button{
+    float:left;
+    border:0;
+    height:36px;
+    width:100px;
+    color:#FFF;
+    line-height:36px;
+    text-align:center;
+    overflow:hidden;
+    outline: none;
+}
+
+
