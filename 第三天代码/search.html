@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<main>
+			<ul id="hot-goods">
+			</ul>
+		</main>
+		<script src="js/mayajax.js" charset="utf-8"></script>
+		<script>
+			var search_text = getQueryString('search_text');
+			var oGoods = document.querySelector('#hot-goods');
+			$();
+			$.get('http://h6.duchengjiu.top/shop/api_goods.php', {search_text: search_text},function(json){
+				var data = json.data;
+				var str = '';
+				if (data.length === 0) {
+					oGoods.innerHTML = "未搜索到商品, <span id='second'>5</span>秒后跳回首页";
+					var oSecond = oGoods.querySelector('#second');
+						var timer = setInterval(() => {
+							var second = parseInt(oSecond.innerText);
+							oSecond.innerText = --second;
+						}, 1000);
+						setTimeout(() => {
+							clearInterval(timer);
+							location.href = 'index.html';
+						}, 5000);
+						return;
+					}
+				for (var i = 0; i < data.length; i++) {
+					var obj = data[i];
+					str += `<li class="goods"><a href="goods.html?goods_id=${obj.goods_id}">
+				        <div><img src="${obj.goods_thumb}" /></div>
+				        <div>${obj.goods_name}</div>
+				        <div>${obj.price}</div></a>
+				    </li>`;
+				}
+				$('#hot-goods').html(str);
+			});
+			
+			
+			function getQueryString(name) {
+			    var search = location.search.substr(1);
+			    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+			    var result = search.match(reg);
+			    return result === null ? null : decodeURIComponent(result[2]);
+			}
+
+		</script>
+	</body>
+</html>
+
+
