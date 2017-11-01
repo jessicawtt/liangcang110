@@ -1,0 +1,656 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.header1 {
+	width: 100%;
+	height: 40px;
+	position: relative;
+	background: #f8f8f8;
+}
+
+.header1 .header-con {
+	position: absolute;
+	color: black;
+	text-align: center;
+	left: 200px;
+	margin-top: 6px;
+	font-size: 20px;
+}
+
+.header1 .header-son {
+	position: absolute;
+	left: 140px;
+	margin-top: 6px;
+}
+
+.header1 .header-son ul {
+	list-style: none;
+	margin-left: 300px;
+}
+
+.header1 .header-son ul li {
+	width: 70px;
+	height: 25px;
+	float: left;
+	margin-left: 15px;
+	cursor: pointer;
+	font-size: 13px;
+	text-align: center;
+	line-height: 25px;
+}
+
+.header1 .header-son ul li a {
+	color: black;
+	text-decoration: none;
+}
+
+.header1 .header-son ul li button {
+	color: black;
+	width: 70px;
+	height: 25px;
+	border: none;
+	background: #f8f8f8;
+}
+
+.header1 .header-son ul li a:hover {
+	color: red;
+	border: 1px solid black;
+	display: block;
+	background-color: #DDDDDD;
+}
+
+.header1 .header-son ul li button:hover {
+	color: red;
+	border: 1px solid black;
+	background-color: #DDDDDD;
+}
+
+.header2 {
+	width: 100%;
+	height: 100px;
+	/*background: gainsboro;*/
+}
+
+.header2 .logo1 {
+	position: absolute;
+	width: 160px;
+	margin-left: 165px;
+}
+
+.header2 .logo2 {
+	position: absolute;
+	float: left;
+	width: 305px;
+	margin-left: 335px;
+	background: url(../img/b.png) no-repeat 0px -6px;
+}
+
+.header2 .logo2 ul {
+	list-style: none;
+	cursor: pointer;
+}
+
+.header2 .logo3 {
+	width: 110px;
+	height: 35px;
+	margin-top: 27px;
+	position: absolute;
+	left: 1090px;
+	background: gainsboro;
+	border-radius: 3px;
+}
+
+.header2 .logo3 .a {
+	width: 15px;
+	height: 30px;
+	background: url(../img/b.png) no-repeat -93px -200px;
+	margin-left: 15px;
+	cursor: pointer;
+}
+
+.header2 .logo3 .b {
+	width: 40px;
+	height: 30px;
+	line-height: 12px;
+	font-size: 12px;
+	position: absolute;
+	margin-left: 32px;
+	margin-top: -20px;
+}
+
+.header2 .logo3 .c {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	z-index: 1;
+	border-radius: 8px;
+	height: 16px;
+	width: 24px;
+	line-height: 16px;
+	color: #fff;
+	text-align: center;
+	background-color: #f00581;
+}
+
+.header2 .logo3 .c .a1 {
+	line-height: 16px;
+	color: #fff;
+	text-align: center;
+	cursor: pointer;
+}
+
+.header3 {
+	z-index: 11;
+	width: 100%;
+	height: 56px;
+	background-color: #f10180;
+}
+
+.header3 ul {
+	list-style: none;
+}
+
+.header3 ul li {
+	float: left;
+	margin-top: 10px;
+	margin-left: 85px;
+	cursor: pointer;
+}
+
+.header3 ul li a {
+	color: black;
+	font-size: 20px;
+	text-decoration: none;
+}
+
+.header3 ul li a:hover {
+	color: white;
+}
+
+.header4 {
+	/*z-index: 11;*/
+	padding-top: 30px;
+	padding-bottom: 20px;
+	height: 430px;
+	background: gainsboro;
+	background: url(../img/c.jpg);
+	margin: 0 auto;
+}
+
+.header4 .carousel {
+	width: 1000px;
+	height: 350px;
+	/*float: left;*/
+	margin: 50px auto;
+	position: relative;
+	/*overflow: hidden;*/
+}
+
+.header4 .carousel ul {
+	list-style: none;
+}
+
+.header4 .carousel ul li {
+	display: none;
+}
+
+.header4 .carousel ul li.current {
+	display: block;
+}
+
+.header4 .carousel ul li.current img {
+	width: 970px;
+	height: 340px;
+	margin-left: 60px;
+	margin-top: -35px;
+	/*position: absolute;*/
+	border: 12px solid white;
+}
+
+.header4 .carousel span {
+	position: absolute;
+	width: 55px;
+	height: 55px;
+	top: 130px;
+	cursor: pointer;
+}
+
+.header4 .carousel .leftBtn {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background: rgba(250, 0, 0, 0.5);
+	left: 10px;
+	text-align: center;
+	line-height: 30px;
+}
+
+.header4 .carousel .rightBtn {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background: rgba(250, 0, 0, 0.5);
+	text-align: center;
+	line-height: 30px;
+	right: 40px;
+}
+
+.header4 .carousel .circles {
+	position: absolute;
+	bottom: 0px;
+	width: 200px;
+	height: 17px;
+	left: 50%;
+	margin-left: -100px;
+}
+
+.header4 .carousel .circles ol {
+	list-style: none;
+}
+
+.header4 .carousel .circles ol li {
+	float: left;
+	width: 17px;
+	height: 17px;
+	margin-right: 13px;
+	background-color: gold;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.header4 .carousel .circles ol li.current {
+	background-color: purple;
+}
+
+.header5 {
+	width: 100%;
+	height: 403px;
+}
+
+.bd {
+	width: 1020px;
+	height: 389px;
+	margin: 0 auto;
+	position: relative;
+	top: 7px;
+}
+
+.item0 {
+	width: 1020px;
+	height: 145px;
+}
+
+.item0 img {
+	width: 1020px;
+}
+
+.item {
+	width: 204px;
+	height: 244px;
+	padding-right: 10px;
+	float: left;
+	padding: 0 0px 8px 0;
+}
+
+.item img {
+	width: 204px;
+	height: 236.03px;
+}
+
+.header6 {
+	width: 1170px;
+	height: 68px;
+	margin: 0 auto;
+	margin-top: 30px;
+	background: url(../img/today_DDp.png);
+}
+
+.header7 {
+	width: 100%;
+	height: 1100px;
+	background: ghostwhite;
+}
+
+.dibu {}
+
+.box {
+	position: fixed;
+	right: 0px;
+	top: 50px;
+	z-index: 101;
+	width: 36px;
+	height: 600px;
+	background: grey;
+}
+
+.box .fox1 {
+	width: 100%;
+	height: 45px;
+	margin-top: 10px;
+	background-color: blueviolet;
+	background: url(../img/asd.png) no-repeat -160px 0px;
+}
+
+.box .fox1 .aex {
+	width: 115px;
+	height: 35px;
+	background: white;
+	position: absolute;
+	border: 1px solid gainsboro;
+	left: 36px;
+	top: 12px;
+	text-align: center;
+	line-height: 35px;
+	border-radius: 5px 0 0 5px;
+}
+
+.box .fox1:hover .aex {
+	left: -117px;
+	background-color: gainsboro;
+}
+
+.box .fox2 {
+	width: 100%;
+	height: 44px;
+	margin-top: 10px;
+	background-color: blueviolet;
+	background: url(../img/asd.png) no-repeat -160px -44px;
+}
+
+.box .fox2 .bex {
+	width: 115px;
+	height: 35px;
+	background: white;
+	position: absolute;
+	border: 1px solid gainsboro;
+	left: 36px;
+	top: 62px;
+	text-align: center;
+	line-height: 35px;
+	border-radius: 5px 0 0 5px;
+}
+
+.box .fox2:hover .bex {
+	left: -117px;
+	background-color: gainsboro;
+}
+
+.box .fox3 {
+	width: 100%;
+	height: 44px;
+	margin-top: 10px;
+	background-color: blueviolet;
+	background: url(../img/asd.png) no-repeat -120px 0px;
+}
+
+.box .fox3 .cex {
+	width: 115px;
+	height: 35px;
+	background: white;
+	position: absolute;
+	border: 1px solid gainsboro;
+	left: 36px;
+	color: black;
+	top: 122px;
+	text-align: center;
+	line-height: 35px;
+	border-radius: 5px 0 0 5px;
+}
+
+.box .fox3:hover .cex {
+	left: -117px;
+	background-color: gainsboro;
+}
+
+.box .fox4 {
+	width: 100%;
+	height: 44px;
+	margin-top: 10px;
+	background-color: blueviolet;
+	background: url(../img/asd.png) no-repeat -80px 0px;
+}
+
+.box .fox4 .dex {
+	width: 115px;
+	height: 35px;
+	background: white;
+	position: absolute;
+	border: 1px solid gainsboro;
+	color: black;
+	left: 36px;
+	top: 172px;
+	text-align: center;
+	line-height: 35px;
+	border-radius: 5px 0 0 5px;
+}
+
+.box .fox4:hover .dex {
+	left: -117px;
+	background-color: gainsboro;
+}
+
+.box .fox5 {
+	width: 100%;
+	height: 44px;
+	margin-top: 250px;
+	background-color: blueviolet;
+	background: url(../img/asd.png) no-repeat -160px -84px;
+}
+
+.box .fox5 .Eex {
+	width: 115px;
+	height: 35px;
+	background: white;
+	position: absolute;
+	border: 1px solid gainsboro;
+	left: 36px;
+	top: 471px;
+	text-align: center;
+	line-height: 35px;
+	border-radius: 5px 0 0 5px;
+}
+
+.box .fox5:hover .Eex {
+	left: -117px;
+	background-color: gainsboro;
+}
+
+.box .fox6 {
+	width: 100%;
+	height: 46px;
+	background-color: blueviolet;
+	background: url(../img/asd.png) no-repeat -80px -123px;
+}
+
+.box .fox7 {
+	width: 100%;
+	height: 44px;
+	background-color: blueviolet;
+	background: url(../img/asd.png) no-repeat -120px -125px;
+}
+
+.box .fox7 .fex {
+	width: 115px;
+	height: 35px;
+	background: white;
+	position: absolute;
+	border: 1px solid gainsboro;
+	left: 36px;
+	top: 561px;
+	text-align: center;
+	line-height: 35px;
+	border-radius: 5px 0 0 5px;
+}
+
+.box .fox7:hover .fex {
+	left: -117px;
+	background-color: gainsboro;
+}
+
+.box .fox7:hover .fex:hover {
+	cursor: pointer;
+}
+
+.somecontent {
+	width: 1000px;
+	height: 1232px;
+	margin: 0 auto;
+	/*background-color: #ccc;*/
+}
+
+
+.leftNav {
+	position: fixed;
+	bottom: 110px;
+	left: 10px;
+	width: 60px;
+	list-style: none;
+	top: 142px;
+}
+
+/*.leftNav ul {
+	list-style: none;
+}*/
+
+.leftNav li {
+	width: 40px;
+	height: 40px;
+	/*background-color: #ccc;*/
+}
+
+.leftNav li a {
+	display: block;
+	width: 60px;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 14px;
+}
+
+
+
+.leftNav li.cur {
+	background-color: rgb(111, 0, 0);
+}
+//底部
+.dibu{
+	width: 100%;
+	margin-top: -80px;
+}
+body{
+	width: 100%;
+	height: 100%;
+	background-color: #FCFCFC;
+	border-top: 1px solid #EBEBEB;
+}
+.foot{
+	width: 960px;
+	height: 410px;
+	margin: 0 auto;
+}
+.tu{
+	width: 960px;
+	height: 105px;
+	margin-top: 300px;
+	background-image: url(../img/QQ1.png) ;
+}
+.tx{
+	width: 960px;
+	height: 146px;
+	margin-top: 35px;
+}
+.tx a{
+	text-decoration: none;
+}
+.L{
+	width: 145px;
+	height: 146px;
+	float: right;
+	list-style: none;
+}
+.L li{
+	font-size: 12PX;
+	text-align: center;
+}
+.L span{
+	margin-left: 22px;
+}
+.l{
+	width: 162px;
+	height: 146px;
+	float: left;
+	border-right: 1px solid #E0E0E0;
+	list-style: none;
+
+}
+
+.l ul{
+	margin-left: 35px;
+	margin-top: 5px;
+	
+}
+.l li{
+	font-size: 12px;
+	color: #808080;
+	margin-top: 4px;
+}
+.l li:hover{
+	margin-left: 3px;
+	color: #D7237E;
+	animation-delay: 1s;
+}
+
+.da{
+	list-style: none;
+	margin-left: -17px;
+	color: #4D4D4D;
+}
+.sp{
+	width: 960px;
+	height: 30px;
+	background-color:#D7237E ;
+	margin-top: 20px;
+	text-align: center;
+}
+.sp span{
+	font-size: 12px;
+	color: #FFFFFF;
+}
+.sp span:hover{
+	color: #9F8FB2;
+}
+.sp a{
+	text-decoration: none;
+}
+.shouquan{
+	width: 960px;
+	height: 57px;
+	font-size: 12px;
+	text-align: center;
+	margin-top: 15px;
+}
+.shouquan a{
+	text-decoration: none;
+}
+.shouquan a:hover{
+	color: #D7237E;
+}
+.shouquan img{
+	width: 12px;
+	height: 12px;
+}
+.footb{
+	width: 100%;
+	/*height: 100%;*/
+	margin: 0 auto;
+	background-color: #FFFFFF;
+}
+.footb1{
+	width: 960px;
+	height: 40px;
+	margin: 0 auto;
+	background-color: red;
+}
