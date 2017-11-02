@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/hotgoods.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+	</head>
+
+	<body>
+		<div class="header1">
+			<div class="header-con">欢迎来到粮仓</div>
+			<div class="header-son">
+				<ul>
+					<li><button class="register" id="register">注册</button></li>
+					<li><button class="login" id="login">登录</button></li>
+					<li>
+						<a href="order.html">我的订单</a>
+					</li>
+					<li>
+						<a href="collection.html">收藏夹</a>
+					</li>
+					<li>
+						<a href="index.html">首页</a>
+					</li>
+					<li>
+						<a href="cart.html">购物车</a>
+					</li>
+					<li>
+						<a href="cart.html">会员俱乐部</a>
+					</li>
+					<li>
+						<a href="cart.html">客户服务</a>
+					</li>
+					<li>
+						<a href="cart.html">手机版</a>
+					</li>
+					<li>
+						<a href="cart.html">更多</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		</div>
+		<div class="header2">
+			<div class="logo1">
+				<a href="index.html">
+					<img src="img/a.gif" />
+				</a>
+			</div>
+			<div class="logo2">
+				<ul>
+					<li>
+						<a href=""><img src="" alt=""></a>
+					</li>
+					<li>
+						<a href=""><img src="" alt=""></a>
+					</li>
+					<li>
+						<a href=""><img src="" alt=""></a>
+					</li>
+
+				</ul>
+			</div>
+			<div class="logo3">
+				<div class="a"></div>
+				<div class="b">购物袋</div>
+				<div class="c">
+					<span class="a1">
+						0
+					</span>
+				</div>
+
+			</div>
+
+		</div>
+		<div class="header3">
+			<ul id="cat" class="cat">
+
+			</ul>
+			<script src="js/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+			<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+			<!--<script src="js/mayajax.js" type="text/javascript" charset="utf-8"></script>-->
+			<script type="text/javascript">
+				$.get("http://h6.duchengjiu.top/shop/api_cat.php", {}, function(json) {
+						console.log(json);
+						console.log(typeof json);
+						var data = json.data;
+
+						for(var i = 0; i < data.length; i++) {
+							var obj = data[i];
+							$('#cat')[0].innerHTML += `<li><a href="商品列表.html?cat_id=${obj.cat_id}">${obj.cat_name}</a></li>`
+						}
+
+					}
+
+				);
+			</script>
+		</div>
+
+		<div class="header4">
+			<div class="carousel">
+				<div class="imagesList" id="imagesList">
+					<ul>
+						<li class="current">
+							<a href="#"> <img src="img/1.jpg" alt=""> </a>
+						</li>
+						<li>
+							<a href="#"> <img src="img/2.jpg" alt=""> </a>
+						</li>
+						<li>
+							<a href="#"> <img src="img/3.jpg" alt=""> </a>
+						</li>
+						<li>
+							<a href="#"> <img src="img/4.jpg" alt=""> </a>
+						</li>
+						<li>
+							<a href="#"> <img src="img/5.jpg" alt=""> </a>
+						</li>
+						<li>
+							<a href="#"> <img src="img/6.jpg" alt=""> </a>
+						</li>
+
+					</ul>
+				</div>
+				<div class="btns">
+					<span class="leftBtn" id="carousel_leftBtn">左</span>
+					<span class="rightBtn" id="carousel_rightBtn">右</span>
+				</div>
+				<div class="circles" id="circles">
+					<ol>
+						<li class="current"></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ol>
+				</div>
+			</div>
+		</div>
+		<script>
+			var index = 0;
+			var oRightBtn = document.getElementById('carousel_rightBtn');
+			var oLeftBtn = document.getElementById('carousel_leftBtn');
+			var oImagesLists = document.getElementById('imagesList').getElementsByTagName('li');
+			var oCirclesLists = document.getElementById('circles').getElementsByTagName('li');
+
+			function zouni() {
+				index++;
+				if(index >= oImagesLists.length) {
+					index = 0;
+				}
+				move();
+			}
+			oRightBtn.onclick = function() {
+				index++;
+				if(index >= oImagesLists.length) {
+					index = 0;
+				}
+				move();
+			}
+			oLeftBtn.onclick = function() {
+				index--;
+				if(index < 0) {
+					index = oImagesLists.length - 1;
+				}
+				move();
+			}
+			for(var i = 0; i < oCirclesLists.length; i++) {
+				(function(i) {
+					oCirclesLists[i].onmouseover = function() {
+						index = i;
+						move();
+					}
+				})(i);
+			}
+
+			function move() {
+				for(var i = 0; i < oImagesLists.length; i++) {
+					oImagesLists[i].className = '';
+				}
+				oImagesLists[index].className = 'current';
+
+				for(var i = 0; i < oCirclesLists.length; i++) {
+					oCirclesLists[i].className = '';
+				}
+				oCirclesLists[index].className = 'current';
+			}
+			setInterval(zouni, 3000);
+		</script>
+
+		<div class="header5">
+			<div class="bd">
+				<div class="item0">
+					<img src="img/d.jpg" />
+				</div>
+				<div class="item">
+					<img src="img/e.jpg" />
+				</div>
+				<div class="item">
+					<img src="img/f.jpg" />
+				</div>
+				<div class="item">
+					<img src="img/g.jpg" />
+
+				</div>
+				<div class="item">
+					<img src="img/h.jpg" />
+
+				</div>
+				<div class="item">
+					<img src="img/i.jpg" />
+
+				</div>
+			</div>
+
+		</div>
+		<div class="header6">
+
+		</div>
+
+		<div class="header7">
+			<script src="js/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+			<main>
+				<ul id="hot-goods"></ul>
+			</main>
+			<script>
+				var oGoods = document.querySelector('#hot-goods');
+
+				$.get("http://h6.duchengjiu.top/shop/api_goods.php?page=5&pagesize=28&cat_id=45", {},
+					function(data) {
+						console.log(data);
+						var data = data.data;
+
+						for(var i = 0; i < data.length; i++) {
+							var obj = data[i];
+							$('#hot-goods')[0].innerHTML += `<li class="goods"><a href="goods.html?goods_id=${obj.goods_id}">
+                    <div><img src="${obj.goods_thumb}" /></div>
+                    <div>${obj.goods_name}</div>
+                    <div>${obj.price}</div></a>
+                </li>`
+						}
+
+					}
+				);
+			</script>
+		</div>
+
+		<div class="dibu">
+
+		</div>
+
+		<div class="box">
+			<div class="fox1">
+				<div class="aex">
+					我的足迹
+				</div>
+			</div>
+			<div class="fox2">
+				<div class="bex">
+					电子劵
+				</div>
+			</div>
+			<div class="fox3">
+				<a href="商品列表.html">
+					<div class="cex">
+						商品列表
+					</div>
+				</a>
+			</div>
+			<div class="fox4">
+				<a href="商品列表.html">
+					<div class="dex">
+						热门品牌
+					</div>
+				</a>
+			</div>
+			<div class="fox5">
+				<div class="Eex">
+					会员反馈
+				</div>
+			</div>
+			<div class="fox6">
+
+			</div>
+			<div class="fox7">
+				<div class="fex">
+					返回顶部
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var oBack = document.querySelector('.fox7');
+			window.onscroll = function() {}
+
+			oBack.onclick = function() {
+				scrollAnimate(0, 500);
+			}
+
+			function scrollAnimate(target, timer) {
+				var interval = 20;
+				var frame = 0;
+				var frames = timer / interval;
+				var start = document.body.scrollTop || document.documentElement.scrollTop;
+				var distance = target - start;
+				var timer;
+				clearInterval(timer);
+				timer = setInterval(function() {
+					frame++;
+					if(frame >= frames) {
+						clearInterval(timer);
+					}
+					document.body.scrollTop = document.documentElement.scrollTop = CubicEaseInOut(frame, start, distance, frames);
+				}, interval);
+
+				function CubicEaseInOut(t, b, c, d) {
+					if((t /= d / 2) < 1) return c / 2 * t * t * t + b;
+					return c / 2 * ((t -= 2) * t * t + 2) + b;
+				}
+			}
+		</script>
+
+		<div class="somecontent"></div>
+			<ul id="leftNav" class="leftNav">
+
+			</ul>
+			<script type="text/javascript">
+				$.get("http://h6.duchengjiu.top/shop/api_cat.php", {}, function(json) {
+						console.log(json);
+						console.log(typeof json);
+						var data = json.data;
+
+						for(var i = 0; i < data.length; i++) {
+							var obj = data[i];
+							$('#leftNav')[0].innerHTML += `<li><a href="商品列表.html?cat_id=${obj.cat_id}">${obj.cat_name}</a></li>`
+						}
+
+					}
+
+				);
+			</script>
+		</div>
+
+		
+
+		<script type="text/javascript">
+			//左侧导航条的li
+			var leftNavLis = document.getElementById("leftNav").getElementsByTagName("li");
+			//得到所有楼层div，由于我们的楼层div没有放到同一个div里面，所以不好通过getElementsByTagName得到
+			//那么我们就要遍历body的所有儿子，看看哪个儿子nodeType属性是1，并且有类型floor
+			var floorArr = []; //所有floor的div
+			var floorOffsetTopArr = []; //所有floor的offsetTop值
+
+			for(var i = 0; i < document.body.childNodes.length; i++) {
+				if(document.body.childNodes[i].nodeType == 1 && document.body.childNodes[i].className.indexOf("floor") != -1) {
+					floorArr.push(document.body.childNodes[i]);
+					floorOffsetTopArr.push(document.body.childNodes[i].offsetTop);
+				}
+			}
+
+			var floorArrLength = floorArr.length;
+
+			//offsetTop这个数组，里面存放的是所有.floor楼层的offsetTop值，数组的最后一项应该就是最后一个楼层
+			//的下边框距离页面顶部的距离。
+			floorOffsetTopArr.push(floorArr[floorArrLength - 1].clientHeight + floorOffsetTopArr[floorArrLength - 1]);
+
+			//当前楼层信号量，NaN表示不在任何楼层里
+			var nowfloor = NaN;
+			//页面卷动事件
+			window.onscroll = function() {
+				//备份一下老楼层编号
+				var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+				//判断此时在第几个楼层，就相当于判断我们现在的卷动值在正序数组中的第几位
+				for(var i = 0; i < floorArrLength; i++) {
+					if(scrollTop >= floorOffsetTopArr[i] - 200 && scrollTop < floorOffsetTopArr[i + 1] - 200) {
+						//此时在第i层，但是我们为了防止动画、DOM操作频繁触发，仅当楼层编号发生变化的时候
+						//再做里面的事情，验证i有没有变化
+						if(i != nowfloor) {
+							!isNaN(nowfloor) && (leftNavLis[nowfloor].className = "");
+							//更改信号量
+							nowfloor = i;
+							//让新的信号量加cur
+							leftNavLis[nowfloor].className = "cur";
+						}
+
+						break;
+					}
+				}
+
+				//如果在数组中没有找到合适的位置：
+				if(i == floorArrLength) {
+					//老信号量这个人去掉cur
+					!isNaN(nowfloor) && (leftNavLis[nowfloor].className = "");
+					nowfloor = NaN;
+				}
+			}
+
+			//左侧导航li的监听
+			for(var i = 0; i < leftNavLis.length; i++) {
+				leftNavLis[i].index = i;
+				leftNavLis[i].onclick = function() {
+					idx = this.index;
+					scrollAnimate(floorOffsetTopArr[this.index], 600);
+				}
+			}
+
+			//窗口动画函数
+			function scrollAnimate(target, time) {
+				var frameNumber = 0; //帧编号
+				var start = document.body.scrollTop || document.documentElement.scrollTop; //起点
+				var distance = target - start;
+				var interval = 10;
+				var maxFrame = time / interval;
+
+				clearInterval(timer);
+				var timer = setInterval(function() {
+					frameNumber++;
+					if(frameNumber == maxFrame) {
+						clearInterval(timer);
+					}
+					//第一个参数t表示当前帧编号
+					//第二个参数b表示起始位置
+					//第三个参数c表示变化量
+					//第四个参数d表示总帧数
+					//返回当前帧应该在哪儿
+					document.body.scrollTop = document.documentElement.scrollTop = CubicEaseInOut(frameNumber, start, distance, maxFrame);
+				}, 10);
+
+				function CubicEaseInOut(t, b, c, d) {
+					if((t /= d / 2) < 1) return c / 2 * t * t * t + b;
+					return c / 2 * ((t -= 2) * t * t + 2) + b;
+				}
+			}
+		</script>
+
+//底部
+		<div class="dibu">
+			<div class="foot">
+					<div class="tu"></div>
+						<div class="tx">
+							
+						<a href="">
+								
+							<div class="L">
+								<ul>
+									<li class="">唯品会APP二维码</li>
+										<span>
+											<img src="img/page_bottom_dl_n.png"/>
+										</span>
+									<li>下载唯品会移动APP</li>
+								</ul>
+							</div>
+							
+							<div class="l">
+									<ul>
+									<li class="da"><h3>服务保障</h3></li>
+									<li>正品保证</li>
+									<li>7天无理由放心退</li>
+									<li>退货返运费</li>
+									<li>7x15小时客户服务</li>
+									</ul>
+								</div>
+								
+								<div class="l">
+									<ul>
+									<li class="da"><h3>购物指南</h3></li>
+									<li>导购演示</li>
+									<li>订单操作</li>
+									<li>会员注册</li>
+									<li>账户管理</li>
+									<li>收货样品</li>
+									<li>会员等级</li>
+									</ul>
+								</div>
+								
+								<div class="l">
+									<ul>
+									<li class="da"><h3>支付方式</h3></li>
+									<li>快捷支付</li>
+									<li>23家主流网银支付</li>
+									<li>货到付款</li>
+									<li>支付宝、银联等支付</li>
+									<li>信用卡支付</li>
+									<li>零钱支付</li>
+									</ul>
+								</div>
+								
+								<div class="l">
+									<ul>
+									<li class="da"><h3>配送方式</h3></li>
+									<li>全场满288元免运费</li>
+									<li>配送范围及运费</li>
+									<li>验货与签收</li>
+									</ul>
+								</div>
+								
+								<div class="l">
+									<ul>
+									<li class="da"><h3>售后服务</h3></li>
+									<li>退货政策</li>
+									<li>退货流程</li>
+									<li>退款方式和时效</li>
+									</ul>
+								</div>
+								
+							</div>
+						
+						</a>
+						<div class="sp">
+							<a href="">
+							<span >
+								关于我们|         
+							</span>
+							<span>
+								About us|
+							</span>
+								<span>
+								Investor Relations|
+							</span>
+								<span>
+								媒体报道|
+							</span>
+								<span>
+								品牌招商|
+							</span>
+								<span>
+								隐私条款|
+							</span>
+							<span>
+								唯品诚聘|
+							</span>
+							<span>
+								365爱心基金|
+							</span>
+							<span>
+								唯品卡|
+							</span>
+							<span>
+								联系我们
+							</span>
+							</a>
+						</div>
+						
+						<div class="shouquan">
+							<a href="">
+		                Copyright © 2008-2017 vip.com，All Rights Reserved  使用本网站即表示接受
+		                <span>唯品会用户协议。版权所有 广州唯品会信息科技有限公司</span>
+		                <br />	
+		                </span><img src="img/police_icon.png"/> 粤公网安备 44010302111111号  粤ICP备08114786号 ICP经营许可证：粤B2-20080329 网络文化经营许可证：粤网文〔2015〕1528-229</span>
+		                <br />
+		                <span>自营主体经营证照  风险监测信息  互联网药品交易服务资格证（粤C20140002）</span>	
+		                </a>                                
+						</div>
+					
+					</div>
+				</div>
+			</div>
+				<div class="footb">
+					<div class="footb1">
+						<a href="#"><img src="img/QQ3.png"/></a>
+					</div>
+				</div>
+		
+		</div>
+			
+	</body>
+
+</html>
