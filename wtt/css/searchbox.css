@@ -1,0 +1,49 @@
+.bodys{
+    height:50px;
+    width:400px;
+}
+.bodys input{
+    height:30px;
+    line-height:30px;
+    width:260px;
+    padding:0 10px;
+    float:left;
+    outline: none
+}
+.bodys .three{
+    border:#F90 3px solid
+}
+.bodys .three3{
+    background-color:#F90;
+    cursor: pointer;
+    width: 45px;
+    height: 35px;
+}
+
+img {
+	margin-left: 200px;
+	margin-top: 20px;
+	position: relative;
+	width: 437px;
+	height: 437px;
+	border: 1px solid #ccc;
+}
+
+/*.picture img {
+	border: 2px solid grey;
+	border-radius: 5px;
+	overflow: hidden;
+}*/
+
+a {
+	font-size: 25px;
+	margin-left: 700px;
+	margin-top: -400px;
+}
+
+p {
+	margin-left: 700px;
+	margin-top: 65px;
+	font-size: 20px;
+}
+

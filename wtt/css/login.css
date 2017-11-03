@@ -1,0 +1,182 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.oDiv1{
+	width: 1000px;
+	height: 75px;
+	margin: 0 auto;
+	margin-top: 50px;
+	/*background-color: red;*/
+}
+.log1{
+	width: 315px;
+	height: 73px;
+	float: left;
+	background-image: url("../img/sprite2.png"); 
+	background-position-x: 0px;
+	background-position-y: 0px;
+}
+.log2{
+	width: 445px;
+	height: 28px;
+	float: right;
+	margin-top: 23px;
+	background-image: url("../img/sprite.png"); 
+	background-position-x: -317px;
+	background-position-y: 0px;
+}
+.logo{
+    width: 1000px;
+    height: 500px;
+    background-color: #FDFBFE;
+    margin: 60px auto;
+    background: url("https://img.vipstatic.com/upload/flow/2017/03/28/127/14906736174487.jpg");
+}
+.content{
+    width: 400px;
+    height: 300px;
+    /*background-color: blue;*/
+    float: right;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+
+.bottom{
+    width: 400px;
+    height: 200px;
+    /*background-color: blueviolet;*/
+    margin-top: 40px;
+    float: right;
+}
+.more{
+    width: 28px;
+    height: 15px;
+    /*background-color: #1ab8f3;*/
+    float: left;
+    font-size: 12px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.zhanghao{
+    margin-top: 20px;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+.cellphone{
+    width: 270px;
+    height: 30px;
+
+}
+.shuru{
+    font-size: 12px;
+    visibility:hidden;
+    color: red;
+}
+#button{
+    width: 130px;
+    height: 40px;
+    background-color: #F10180;
+    font-size: 16px;
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    outline: none;
+}
+#select{
+    height: 40px;
+    line-height: 40px;
+    margin-top: 30px;
+}
+
+.checkb{
+    width: 16px;
+    height: 16px;
+    margin-top: 10px;
+    display: inline;
+}
+.remember{
+
+    font-size: 14px;
+}
+#forget{
+    margin-left: 50px;
+    font-size: 14px;
+}
+ #forget:hover{
+     color: red;
+ }
+#free{
+    color: red;
+    font-size: 14px;
+}
+.collaborate{
+    margin-top: 10px;
+    font-size: 14px;
+}
+.tubiao{
+    margin-top: 10px;
+}
+.tuBo{
+    width: 27px;
+    height: 27px;
+    /*background-color: yellow;*/
+    background: url("../img/sprite.png");
+    background-position-x: -290px;
+    background-position-y: -57px;
+    float: left;
+}
+.tuBo1:hover{
+    background-position-x: -262px;
+}
+.tuBo2{
+    background-position-x: -234px;
+}
+.tuBo2:hover{
+    background-position-x: -346px;
+}
+.tuBo3{
+    background-position-x: -178px;
+}
+.tuBo3:hover{
+    background-position-x: -150px;
+}
+.tuBo4{
+    background-position-x: -206px;
+}
+.tuBo4:hover{
+    background-position-x: -318px;
+}
+.moreK{
+    width: 280px;
+    height: 60px;
+    /*background-color: aqua;*/
+    margin-left: 5px;
+    font-size: 14px;
+    line-height: 30px;
+}
+.slabel:hover{
+    color: red;
+}
+.end{
+    font-size: 12px;
+    text-align: center;
+}
+.slabel{
+    text-align: center;
+    width: 66px;
+    float: left;
+    display: none;
+}
+.SearchBox{
+    width: 400px;
+    height: 100px;
+    background-color: #0aa5df;
+
+
+}

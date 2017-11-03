@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/cart.css"/>
+		
+	</head>
+	<body>
+		<div class="header1">
+			<div class="header-con">欢迎来到粮仓</div>
+			<div class="header-son">
+				<ul>
+					<li><a href="register.html">注册</a></li>
+					<li><a href="login.html">登录</a></li>
+					<li>
+						<a href="#.html">我的订单</a>
+					</li>
+					<li>
+						<a href="#.html">收藏夹</a>
+					</li>
+					<li>
+						<a href="index.html">首页</a>
+					</li>
+					<li>
+						<a href="cart.html">购物车</a>
+					</li>
+					<li>
+						<a href="#.html">会员俱乐部</a>
+					</li>
+					<li>
+						<a href="#.html">客户服务</a>
+					</li>
+					<li>
+						<a href="#.html">手机版</a>
+					</li>
+					<li>
+						<a href="#.html">更多</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		</div>
+		<div class="header2">
+			<div class="logo1">
+				<a href="index.html">
+					<img src="img/a.gif" />
+				</a>
+			</div>
+			<div class="logo2">
+				<ul>
+					<li>
+						<a href=""><img src="" alt=""></a>
+					</li>
+					<li>
+						<a href=""><img src="" alt=""></a>
+					</li>
+					<li>
+						<a href=""><img src="" alt=""></a>
+					</li>
+
+				</ul>
+			</div>
+			<div class="logo3">
+				<div class="a"></div>
+				<div class="b">购物袋</div>
+				<div class="c">
+					<span class="a1">
+						0
+					</span>
+				</div>
+
+			</div>
+
+		</div>
+		<div class="header3">
+			<ul id="cat" class="cat">
+
+			</ul>
+			<script src="js/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+			<script src="js/mayajax.js" type="text/javascript" charset="utf-8"></script>
+			<script type="text/javascript">
+				$.get("http://h6.duchengjiu.top/shop/api_cat.php", {}, function(json) {
+						console.log(json);
+						console.log(typeof json);
+						var data = json.data;
+
+						for(var i = 0; i < data.length; i++) {
+							var obj = data[i];
+							$('#cat')[0].innerHTML += `<li><a href="商品列表.html?cat_id=${obj.cat_id}">${obj.cat_name}</a></li>`
+						}
+
+					}
+
+				);
+			</script>
+		</div>
+		
+<!--购物车-->		
+		<main>
+			<table>
+				<tr>
+					<td>商品ID</td>
+					<td>图片</td>
+					<td>名称</td>
+					<td>数量</td>
+					<td>单价</td>
+					<td>总价</td>
+					<td>操作</td>
+				</tr>
+			</table>
+			<div class="footer">
+				小计：<span id="sum">￥0</span>
+				<input type="button" id="clear-cart" value="清空购物车" />
+				<a href="#.html">结算</a>
+			</div>
+		</main>
+		<script type="text/javascript">
+			var oTable = document.querySelector("table");
+			var oSum = document.querySelector("#sum");
+			myajax.get("http://h6.duchengjiu.top/shop/api_cart.php",{
+				token:localStorage.token
+			},function(err,responseText){
+				var json = JSON.parse(responseText);
+				console.log(json);
+				var data = json.data;
+				for (var i= 0;i<data.length;i++){
+					var obj  = data[i];
+					console.log(obj)
+					//一件商品的总价
+					obj.goods_sum = obj.goods_price*obj.goods_number;
+					oTable.innerHTML +=`
+							<tr>
+								<td name="goods_id">${obj.goods_id}</td>
+								<td><img src="${obj.goods_thumb}"</td>
+								<td>${obj.goods_name}</td>
+                            	<td><input data-id="${obj.goods_id}" type="number" name="number" min="1" max="10" value="${obj.goods_number}" /></td>
+								<td>￥${obj.goods_price}</td>
+								<td name="sum">￥${obj.goods_sum}</td>
+                            	<td><input data-id="${obj.goods_id}" type="button" name="delete" value="删除"></td>
+							</tr>
+							`;
+						}
+						getSum();
+				});
+				
+				oTable.onchange = function(event) {
+				event = event || window.event;
+				var target = event.target || event.srcElement;
+				if (target.name=== 'number') {
+					if (isNaN(parseInt(target.value))) {
+						target.value = 1;
+					}
+					console.log(target.value, target.dataset.id);
+					var goods_id = target.dataset.id;
+					var number = target.value;
+					myajax.post('http://h6.duchengjiu.top/shop/api_cart.php?token=' + localStorage.token, {
+							goods_id,
+							number
+						},
+						function(err, responseText) {
+							var json = JSON.parse(responseText);
+							console.log(json);
+							if (json.code === 0) {
+								var goods_price = parseInt(target.parentNode.nextElementSibling.innerText);
+								target.parentNode.nextElementSibling.nextElementSibling.innerText = parseInt(target.value) * goods_price;
+								getSum();
+							}
+						})
+				}
+			}
+			oTable.addEventListener('click', function(event) {
+				event = event || window.event;
+				var target = event.target || event.srcElement;
+				if (target.name=== 'delete') {
+					if (!confirm('确认要删除吗')) {
+						return;
+					}
+					//得到商品ID
+					var goods_id = target.dataset.id;
+					var number = 0;
+					myajax.post('http://h6.duchengjiu.top/shop/api_cart.php?token=' + localStorage.token, {
+							goods_id,
+							number
+						},
+						(err, responseText) => {
+							var json = JSON.parse(responseText);
+							console.log(json);
+							if (json.code === 0) {
+								var tr = target.parentNode.parentNode;
+								tr.parentNode.removeChild(tr);
+								getSum();
+							}
+						})
+				}
+			});
+
+			var oClearCart = document.querySelector('#clear-cart');
+			oClearCart.onclick = () => {
+				if (!confirm('确认要清空整个购物车吗？')) {
+					return;
+				}
+				var oGoodsIds = document.querySelectorAll('td[name=goods_id]');
+				for (var i = 0; i < oGoodsIds.length; i++) {
+					var td = oGoodsIds[i];
+					var goods_id = parseInt(td.innerText);
+					var number = 0;
+					(function(td) {
+						myajax.post('http://h6.duchengjiu.top/shop/api_cart.php?token=' + localStorage.token, {
+								goods_id,
+								number
+							},
+							(err, responseText) => {
+								var json = JSON.parse(responseText);
+								console.log(json);
+								if (json.code === 0) {
+									var tr = td.parentNode;
+									tr.parentNode.removeChild(tr);
+									getSum();
+								}
+							});
+					})(td);
+				}
+			}
+
+			//显示出总价
+			function getSum() {
+				var oSums = document.querySelectorAll('td[name=sum]');
+				var sum = 0;
+				for (var i = 0; i < oSums.length; i++) {
+					sum += parseInt(oSums[i].innerText.substr(1));
+				}
+				localStorage.sum = sum;
+				oSum.innerText = "￥" + sum;
+			}
+		
+		</script>
+
+
+<!--底部-->
+		<div class="dibu">
+			<div class="foot">
+				<div class="tu"></div>
+				<div class="tx">
+
+					<a href="">
+
+						<div class="L">
+							<ul>
+								<li class="">唯品会APP二维码</li>
+								<span>
+											<img src="img/page_bottom_dl_n.png"/>
+										</span>
+								<li>下载唯品会移动APP</li>
+							</ul>
+						</div>
+
+						<div class="l">
+							<ul>
+								<li class="da">
+									<h3>服务保障</h3></li>
+								<li>正品保证</li>
+								<li>7天无理由放心退</li>
+								<li>退货返运费</li>
+								<li>7x15小时客户服务</li>
+							</ul>
+						</div>
+
+						<div class="l">
+							<ul>
+								<li class="da">
+									<h3>购物指南</h3></li>
+								<li>导购演示</li>
+								<li>订单操作</li>
+								<li>会员注册</li>
+								<li>账户管理</li>
+								<li>收货样品</li>
+								<li>会员等级</li>
+							</ul>
+						</div>
+
+						<div class="l">
+							<ul>
+								<li class="da">
+									<h3>支付方式</h3></li>
+								<li>快捷支付</li>
+								<li>23家主流网银支付</li>
+								<li>货到付款</li>
+								<li>支付宝、银联等支付</li>
+								<li>信用卡支付</li>
+								<li>零钱支付</li>
+							</ul>
+						</div>
+
+						<div class="l">
+							<ul>
+								<li class="da">
+									<h3>配送方式</h3></li>
+								<li>全场满288元免运费</li>
+								<li>配送范围及运费</li>
+								<li>验货与签收</li>
+							</ul>
+						</div>
+
+						<div class="l">
+							<ul>
+								<li class="da">
+									<h3>售后服务</h3></li>
+								<li>退货政策</li>
+								<li>退货流程</li>
+								<li>退款方式和时效</li>
+							</ul>
+						</div>
+
+				</div>
+
+				</a>
+				<div class="sp">
+					<a href="">
+						<span>
+								关于我们|         
+							</span>
+						<span>
+								About us|
+							</span>
+						<span>
+								Investor Relations|
+							</span>
+						<span>
+								媒体报道|
+							</span>
+						<span>
+								品牌招商|
+							</span>
+						<span>
+								隐私条款|
+							</span>
+						<span>
+								唯品诚聘|
+							</span>
+						<span>
+								365爱心基金|
+							</span>
+						<span>
+								唯品卡|
+							</span>
+						<span>
+								联系我们
+							</span>
+					</a>
+				</div>
+
+				<div class="shouquan">
+					<a href="">
+						Copyright © 2008-2017 vip.com，All Rights Reserved 使用本网站即表示接受
+						<span>唯品会用户协议。版权所有 广州唯品会信息科技有限公司</span>
+						<br />
+						</span><img src="img/police_icon.png" /> 粤公网安备 44010302111111号 粤ICP备08114786号 ICP经营许可证：粤B2-20080329 网络文化经营许可证：粤网文〔2015〕1528-229</span>
+						<br />
+						<span>自营主体经营证照  风险监测信息  互联网药品交易服务资格证（粤C20140002）</span>
+					</a>
+				</div>
+
+			</div>
+		</div>
+		</div>
+		<div class="footb">
+			<div class="footb1">
+				<a href="#"><img src="img/QQ3.png" /></a>
+			</div>
+		</div>
+
+		</div>
+
+	</body>
+</html>

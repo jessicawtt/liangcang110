@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="css/list.css"/>
+	</head>
+
+	<body>
+		<div class="header-container">
+			<a class="return" href="index.html">返回首页</a>
+			<a class="shop" href="cart.html">购物车</a>
+			<a class="order" href="#.html">我的订单</a>
+		</div>
+		<script src="js/mayajax.js" charset="utf-8"></script>
+		<ul id="cat" class="cat"></ul>
+		<script>
+			var oCat = document.querySelector('#cat');
+			myajax.get('http://h6.duchengjiu.top/shop/api_cat.php', {}, function(error, responseText) {
+				var json = JSON.parse(responseText);
+				var data = json.data;
+				for(var i = 0; i < data.length; i++) {
+					var obj = data[i];
+					oCat.innerHTML += `<li><a href="商品列表.html?cat_id=${obj.cat_id}">${obj.cat_name}</a></li>`;
+				}
+			});
+		</script>
+		</header>
+
+		<main>
+			<ul id="hot-goods">
+			</ul>
+		</main>
+		<script>
+			var cat_id = getQueryString('cat_id');
+			var oGoods = document.querySelector('#hot-goods');
+			myajax.get('http://h6.duchengjiu.top/shop/api_goods.php', {
+					cat_id: cat_id
+				},
+				(err, responseText) => {
+					var json = JSON.parse(responseText);
+					console.log(json);
+					var data = json.data;
+					if(data.length === 0) {
+						oGoods.innerHTML = "<center>后端程序员跑路了</center>";
+						return;
+					}
+					for(var i = 0; i < data.length; i++) {
+						var obj = data[i];
+						oGoods.innerHTML += `<li class="goods"><a href="goods.html?goods_id=${obj.goods_id}">
+          <div><img src="${obj.goods_thumb}" /></div>
+          <div>${obj.goods_name}</div>
+          <div>${obj.price}</div></a>
+        </li>`;
+					}
+				});
+		</script>
+		<div class="box">
+			<div class="fox1">
+				<div class="aex">
+					我的足迹
+				</div>
+			</div>
+			<div class="fox2">
+				<div class="bex">
+					电子劵
+				</div>
+			</div>
+			<div class="fox3">
+				<a href="商品列表.html">
+					<div class="cex">
+						商品列表
+					</div>
+				</a>
+			</div>
+			<div class="fox4">
+				<a href="热门商品.html">
+					<div class="dex">
+						热门品牌
+					</div>
+				</a>
+			</div>
+			<div class="fox5">
+				<div class="Eex">
+					会员反馈
+				</div>
+			</div>
+			<div class="fox6"></div>
+			<div class="fox7">
+				<div class="fex">
+					返回顶部
+				</div>
+			</div>
+		</div>
+			<script type="text/javascript">
+				var oBack = document.querySelector('.fox7');
+				window.onscroll = function() {}
+
+				oBack.onclick = function() {
+					scrollAnimate(0, 500);
+				}
+
+				function scrollAnimate(target, timer) {
+					var interval = 20;
+					var frame = 0;
+					var frames = timer / interval;
+					var start = document.body.scrollTop || document.documentElement.scrollTop;
+					var distance = target - start;
+					var timer;
+					clearInterval(timer);
+					timer = setInterval(function() {
+						frame++;
+						if (frame >= frames) {
+							clearInterval(timer);
+						}
+						document.body.scrollTop = document.documentElement.scrollTop = CubicEaseInOut(frame, start, distance, frames);
+					}, interval);
+
+					function CubicEaseInOut(t, b, c, d) {
+						if ((t /= d / 2) < 1) return c / 2 * t * t * t + b;
+						return c / 2 * ((t -= 2) * t * t + 2) + b;
+					}
+				}
+			</script>
+			
+		<!--底部-->
+		<div class="dibu">
+			<div class="foot">
+				<div class="tu"></div>
+				<div class="tx">
+
+					<a href="">
+
+						<div class="L">
+							<ul>
+								<li class="">唯品会APP二维码</li>
+								<span>
+											<img src="img/page_bottom_dl_n.png"/>
+										</span>
+								<li>下载唯品会移动APP</li>
+							</ul>
+						</div>
+
+						<div class="l">
+							<ul>
+								<li class="da">
+									<h3>服务保障</h3></li>
+								<li>正品保证</li>
+								<li>7天无理由放心退</li>
+								<li>退货返运费</li>
+								<li>7x15小时客户服务</li>
+							</ul>
+						</div>
+
+						<div class="l">
+							<ul>
+								<li class="da">
+									<h3>购物指南</h3></li>
+								<li>导购演示</li>
+								<li>订单操作</li>
+								<li>会员注册</li>
+								<li>账户管理</li>
+								<li>收货样品</li>
+								<li>会员等级</li>
+							</ul>
+						</div>
+
+						<div class="l">
+							<ul>
+								<li class="da">
+									<h3>支付方式</h3></li>
+								<li>快捷支付</li>
+								<li>23家主流网银支付</li>
+								<li>货到付款</li>
+								<li>支付宝、银联等支付</li>
+								<li>信用卡支付</li>
+								<li>零钱支付</li>
+							</ul>
+						</div>
+
+						<div class="l">
+							<ul>
+								<li class="da">
+									<h3>配送方式</h3></li>
+								<li>全场满288元免运费</li>
+								<li>配送范围及运费</li>
+								<li>验货与签收</li>
+							</ul>
+						</div>
+
+						<div class="l">
+							<ul>
+								<li class="da">
+									<h3>售后服务</h3></li>
+								<li>退货政策</li>
+								<li>退货流程</li>
+								<li>退款方式和时效</li>
+							</ul>
+						</div>
+
+				</div>
+
+				</a>
+				<div class="sp">
+					<a href="">
+						<span>
+								关于我们|         
+							</span>
+						<span>
+								About us|
+							</span>
+						<span>
+								Investor Relations|
+							</span>
+						<span>
+								媒体报道|
+							</span>
+						<span>
+								品牌招商|
+							</span>
+						<span>
+								隐私条款|
+							</span>
+						<span>
+								唯品诚聘|
+							</span>
+						<span>
+								365爱心基金|
+							</span>
+						<span>
+								唯品卡|
+							</span>
+						<span>
+								联系我们
+							</span>
+					</a>
+				</div>
+
+				<div class="shouquan">
+					<a href="">
+						Copyright © 2008-2017 vip.com，All Rights Reserved 使用本网站即表示接受
+						<span>唯品会用户协议。版权所有 广州唯品会信息科技有限公司</span>
+						<br />
+						</span><img src="img/police_icon.png" /> 粤公网安备 44010302111111号 粤ICP备08114786号 ICP经营许可证：粤B2-20080329 网络文化经营许可证：粤网文〔2015〕1528-229</span>
+						<br />
+						<span>自营主体经营证照  风险监测信息  互联网药品交易服务资格证（粤C20140002）</span>
+					</a>
+				</div>
+
+			</div>
+		</div>
+		</div>
+		<div class="footb">
+			<div class="footb1">
+				<a href="#"><img src="img/QQ3.png" /></a>
+			</div>
+		</div>
+
+		</div>	
+			
+	</body>
+
+</html>
